@@ -5,15 +5,18 @@ const scheduleRouter = Router();
 const scheduleService = new ScheduleService();
 
 scheduleRouter.get('/', async (req, res) => {
-    res(scheduleService.getAll());
+    const result = await scheduleService.getAll()
+    res.json(result);
 });
 
 scheduleRouter.get('/:id', async (req, res) => {
-    res.send(scheduleService.get(req));
+    const result = await scheduleService.get(req)
+    res.json(result);
 });
 
 scheduleRouter.post('/', async (req, res) => {
-    res(scheduleService.insert(req));
+    const result = await scheduleService.insert(req)
+    res.json(result);
 });
 
 module.exports = scheduleRouter;

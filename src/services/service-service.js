@@ -31,7 +31,7 @@ class ServiceService {
     }
 
     async insert(event) {
-        const requestBody = JSON.parse(event.body);
+        const requestBody = event.body;
         const { name } = requestBody;
 
         const Item = { name };

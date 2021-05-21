@@ -10,11 +10,13 @@ serviceRouter.get('/', async (req, res) => {
 });
 
 serviceRouter.get('/:id', async (req, res) => {
-    res.send(serviceService.get(req));
+    const result = await serviceService.get(req);
+    res.send(result);
 });
 
 serviceRouter.post('/', async (req, res) => {
-    res(serviceService.insert(req));
+    const result = await serviceService.insert(req);
+    res.send(result);
 });
 
 module.exports = serviceRouter;

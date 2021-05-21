@@ -7,7 +7,7 @@ class RequestService {
     constructor() {
         this.type = FAUNA_DB_COLLECTIONS.REQUEST;
         this.db = DB;
-        this.facade = new AlterStatusFacade(DB, this, null);
+        this.facade = new AlterStatusFacade(this, null);
     }
 
     async get(event) {
@@ -33,7 +33,7 @@ class RequestService {
     }
 
     async insert(event) {
-        const requestBody = JSON.parse(event.body);
+        const requestBody = event.body;
         const createdAt = new Date().toISOString();
         const status = REQUEST_STATUS.WAITING;
         const { service, scheduledDate } = requestBody;

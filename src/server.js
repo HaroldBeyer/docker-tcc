@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser');
 const express = require('express');
 const requestRouter = require('./routers/request-router');
 const scheduleRouter = require('./routers/schedule-router');
@@ -5,7 +6,10 @@ const serviceRouter = require('./routers/service-router');
 
 const app = express();
 
+
 const PORT = 3000;
+
+app.use(bodyParser.json());
 
 app.use('/request', requestRouter);
 

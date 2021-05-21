@@ -33,7 +33,7 @@ class ScheduleService {
     }
 
     async insert(event) {
-        const requestBody = JSON.parse(event.body);
+        const requestBody = event.body;
         const { hour, day, year, month, service } = requestBody;
         const date = new Date(year, month, day, hour).toISOString();
 
