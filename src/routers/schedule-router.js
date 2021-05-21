@@ -1,7 +1,7 @@
-import { Router } from "express";
+const { Router } = require('express');
 const { ScheduleService } = require('../services/schedule-service');
 
-export const scheduleRouter = Router();
+const scheduleRouter = Router();
 const scheduleService = new ScheduleService();
 
 scheduleRouter.get('/', async (req, res) => {
@@ -15,3 +15,5 @@ scheduleRouter.get('/:id', async (req, res) => {
 scheduleRouter.post('/', async (req, res) => {
     res(scheduleService.insert(req));
 });
+
+module.exports = scheduleRouter;

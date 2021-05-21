@@ -1,7 +1,7 @@
-import { Router } from 'express';
+const { Router } = require('express');
 const { RequestService } = require('../services/request-service');
 
-export const requestRouter = Router();
+const requestRouter = Router();
 const requestService = new RequestService()
 
 requestRouter.get('/', async (req, res) => {
@@ -23,3 +23,5 @@ requestRouter.put('/:id/confirm', async (req, res) => {
 requestRouter.put('/:id/cancel', async (req, res) => {
     res(requestService.cancel(req));
 });
+
+module.exports = requestRouter;
