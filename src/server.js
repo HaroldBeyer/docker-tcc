@@ -9,6 +9,8 @@ const app = express();
 
 const PORT = 3000;
 
+const HOST = "0.0.0.0";
+
 app.use(bodyParser.json());
 
 app.use('/request', requestRouter);
@@ -17,6 +19,5 @@ app.use('/service', serviceRouter);
 
 app.use('/schedule', scheduleRouter);
 
-app.listen(PORT, () => {
-    console.log("App listening at port " + PORT)
-});
+app.listen(PORT, HOST);
+console.log(`Running on http://${HOST}:${PORT}`);
